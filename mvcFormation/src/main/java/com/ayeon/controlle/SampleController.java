@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -97,5 +98,16 @@ public class SampleController {
 		return "ex03";
 		
 	}
+	
+	@GetMapping("/ex04")
+	public String ex04(SampleDTO dto, @ModelAttribute("page") int page ) {
+		
+		log.info("dto: --------- " + dto );
+		log.info("page: " + page);
+		
+		return "/sample/ex04";
+		
+	}
+	
 
 }
